@@ -1,10 +1,10 @@
 name: MANUAL
 
 on:
-  # workflow_dispatch:
-  push:
-    tags:
-      - "**"
+  workflow_dispatch:
+  # push:
+  #   tags:
+  #     - "**"
 
 jobs:
   NATIVE:
