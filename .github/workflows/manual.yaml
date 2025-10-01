@@ -23,3 +23,13 @@ jobs:
         run: |
           git clone ${{ vars.REPO_URL }}
           ls -al
+      - name: Build app
+        run: |
+          cd private-packages/golang-app
+          go build -o main main.go
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-packages-artifact
+          path: main
+          retention-days: 2
