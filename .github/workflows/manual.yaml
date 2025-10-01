@@ -38,4 +38,4 @@ jobs:
         run: |
           cd private-packages/golang-app
           docker build -f dockerfile .
-          docker build -f dockerfile --progress=plain .
+          # docker build -f dockerfile --progress=plain .
