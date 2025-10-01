@@ -27,9 +27,10 @@ jobs:
         run: |
           cd private-packages/golang-app
           go build -o main main.go
+          ls -al
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: public-packages-artifact
-          path: main
+          path: private-packages/golang-app/main
           retention-days: 2
