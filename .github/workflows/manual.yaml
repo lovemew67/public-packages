@@ -1,0 +1,21 @@
+name: MANUAL
+
+on:
+  workflow_dispatch:
+
+jobs:
+  NATIVE:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Greeting
+        run: echo "this job uses github-hosted runners"
+      - name: Run container
+        run: |
+          docker run --rm hello-world:latest
+      - name: Clone repository
+        uses: tanmancan/action-setup-ssh-agent-key@1.0.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          git clone ${{ vars.REPO_URL }}
+          ls -al
