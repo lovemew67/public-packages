@@ -34,3 +34,8 @@ jobs:
           name: public-packages-artifact
           path: private-packages/golang-app/main
           retention-days: 2
+      - name: Build container image
+        run: |
+          cd private-packages/golang-app
+          docker build -f dockerfile .
+          docker build -f dockerfile --progress=plain .
